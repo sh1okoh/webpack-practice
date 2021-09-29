@@ -11,6 +11,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'), //出力先の設定、絶対パス
     filename: 'js/[name].bundle.js', // 出力するファイル名
+    chunkFilename: 'js/[name].js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+      name: 'vendor',
+    }
   },
   plugins: [
     new CleanWebpackPlugin({
