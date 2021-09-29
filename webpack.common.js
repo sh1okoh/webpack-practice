@@ -1,5 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // mode: 'development', // productionもある。devlopmentの方がbuildが早かったりする
@@ -10,7 +11,10 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!**.html'],
+      // cleanOnceBeforeBuildPatterns: ['**/*', '!**.html'],
     }),
+    new HtmlWebpackPlugin({
+      template: './src/html/index.html',
+    })
   ]
 };
